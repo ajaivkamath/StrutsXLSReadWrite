@@ -1,6 +1,7 @@
 package com.XLexample.Actions;
 
 import java.io.File;
+import java.util.List;
 
 import org.apache.struts2.ServletActionContext;
 
@@ -15,9 +16,13 @@ public class XLSActions {
 	{
 		String filePath = ServletActionContext.getServletContext().getRealPath("/");
 		System.out.println(filePath + uploadFileStrName);
-		File inputFile = new File(filePath + uploadFileStrName);
+//		File inputFile = new File(filePath + uploadFileStrName);
+		File inputFile = new File("C:\\Users\\Ajai V Kamath\\Documents\\Blacklisted hospital.xlsx");
 		File outputFile = new File("E:\\Test1.csv");
-		XLSReadWriter.uploadXLS(inputFile, outputFile);
+		File outputExtractFile = new File(filePath + "New_" + uploadFileStrName);
+		List<Object[]> dataObjectList = XLSReadWriter.uploadXLS(inputFile, outputFile);
+		XLSReadWriter.writeXLS(dataObjectList, outputExtractFile);
+		
 		return "success"; 
 	}
 

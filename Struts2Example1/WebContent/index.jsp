@@ -8,7 +8,7 @@
 <body>
 <s:actionmessage value="strMessage"/>
 
-<s:form action="uploadXLData" enctype="multipart/form-data">
+<s:form action="uploadXLData" enctype="multipart/form-data" method="get">
 	
 	<s:file name="uploadFileStrName" label="File name" />
 	<s:submit/>
